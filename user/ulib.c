@@ -3,6 +3,7 @@
 #include "kernel/fcntl.h"
 #include "user/user.h"
 
+//把后面那个拷贝到前面去
 char*
 strcpy(char *s, const char *t)
 {

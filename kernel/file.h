@@ -9,6 +9,7 @@ struct file {
   short major;       // FD_DEVICE
   short minor;       // FD_DEVICE
 };
+//文件有几种类型，管道，INODE和设备文件
 
 #define major(dev)  ((dev) >> 16 & 0xFFFF)
 #define minor(dev)  ((dev) & 0xFFFF)

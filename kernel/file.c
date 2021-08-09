@@ -103,6 +103,7 @@ filestat(struct file *f, uint64 addr)
 
 // Read from file f.
 // addr is a user virtual address.
+// 这边用了f->ip给出了inode结构
 int
 fileread(struct file *f, uint64 addr, int n)
 {

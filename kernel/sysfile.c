@@ -283,6 +283,8 @@ create(char *path, short type, short major, short minor)
   return ip;
 }
 
+//这里面开始读sys_open格式的知识
+
 uint64
 sys_open(void)
 {
