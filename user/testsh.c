@@ -96,6 +96,7 @@ char *shname;
 // its input, collect the output, check that the
 // output includes the expect argument.
 // if tight = 1, don't allow much extraneous output.
+//except包括期待的参数，tight包含外部输出，cmd为命令行
 int
 one(char *cmd, char *expect, int tight)
 {
@@ -141,7 +142,7 @@ one(char *cmd, char *expect, int tight)
   char out[256];
   readfile(outfile, out, sizeof(out));
   unlink(outfile);
-
+  //printf("out应该为%s\n", out);
   if(strstr(out, expect) != 0){
     if(tight && strlen(out) > strlen(expect) + 10){
       fprintf(2, "testsh: saw expected output, but too much else as well\n");
@@ -352,10 +353,13 @@ t9(int *ok)
   strcpy(cmd + strlen(cmd), " > tso\n");
   strcpy(cmd + strlen(cmd), "cat < tso\n");
 
+  //printf("cmd为%s\n", cmd);
+
   if(one(cmd, term, 0) == 0){
     printf("FAIL\n");
     *ok = 0;
   } else {
+    //printf("pass the test t9\n");
     printf("PASS\n");
   }
 
@@ -391,6 +395,5 @@ main(int argc, char *argv[])
   } else {
     printf("failed some tests\n");
   }
-  
   exit(0);
 }

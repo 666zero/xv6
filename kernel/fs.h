@@ -55,6 +55,7 @@ struct dinode {
 
 //這裡面是dirent使用
 //dirent中的inum是指inode编号
+
 struct dirent {
   ushort inum;
   char name[DIRSIZ];
